@@ -5,6 +5,7 @@ import { FornecedorRoutingModule } from './fornecedor-routing.module';
 import { ListarfornecedorComponent } from './listarfornecedor/listarfornecedor.component';
 
 
+
 @NgModule({
   declarations: [
     ListarfornecedorComponent

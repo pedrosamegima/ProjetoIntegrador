@@ -15,8 +15,8 @@ export class FormClientesComponent implements OnInit {
   form = new FormGroup({
     id: new FormControl(),
     nome: new FormControl(''),
-    cpf: new FormControl(' '),
-    rg: new FormControl(' '),
+    cpf: new FormControl(''),
+    rg: new FormControl(''),
     endereco: new FormControl(''),
     email: new FormControl(''),
   })
@@ -33,7 +33,7 @@ export class FormClientesComponent implements OnInit {
       this.service.atualizar(this.form.value).subscribe(
         success => {
           alert("Cliente atualizado com sucesso!");
-          this.router.navigate(['']);
+          this.router.navigate(['clientes']);
         },
         error => alert("Erro ao atualizar o cliente ")
       );
@@ -41,7 +41,7 @@ export class FormClientesComponent implements OnInit {
       this.service.criar(this.form.value).subscribe(
         success => {
           alert("Cliente cadastrado com sucesso!");
-          this.router.navigate(['']);
+          this.router.navigate(['clientes']);
         },
         error => alert("Erro ao cadastrar o cliente ")
       );
@@ -56,7 +56,7 @@ export class FormClientesComponent implements OnInit {
         map((params: any) => params['id']),
         switchMap(id => this.service.listarPorId(id))
       )
-      .subscribe(cliente => this.atualizarForm(cliente));
+      .subscribe(clientes => this.atualizarForm(clientes));
   }
 
   atualizarForm(clientes: Iclientes) {

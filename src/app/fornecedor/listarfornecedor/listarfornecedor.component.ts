@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ifornecedor } from '../service/ifornecedor';
 import { FornecedorService } from '../service/fornecedor.service';
 import { ActivatedRoute,Router } from '@angular/router';
@@ -9,7 +9,7 @@ import{FormControl, FormGroup} from '@angular/forms';
   templateUrl: './listarfornecedor.component.html',
   styleUrls: ['./listarfornecedor.component.scss']
 })
-export class ListarfornecedorComponent {
+export class ListarfornecedorComponent implements OnInit {
   clientes: Ifornecedor[] = [];
 
   form = new FormGroup({

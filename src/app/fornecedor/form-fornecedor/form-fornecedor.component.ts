@@ -14,11 +14,10 @@ export class FormFornecedorComponent implements OnInit {
   form = new FormGroup({
     id: new FormControl(),
     nome: new FormControl(''),
-    cpf: new FormControl(''),
-    rg: new FormControl(''),
+    cnpj: new FormControl(''), // Add this line for the cnpj control
+    ie: new FormControl(''),
     endereco: new FormControl(''),
     email: new FormControl(''),
-    cnpj: new FormControl(''), // Add this line for the cnpj control
   });
 
   constructor(
@@ -35,18 +34,18 @@ export class FormFornecedorComponent implements OnInit {
     if (this.form.value.id) {
       this.service.atualizar(this.form.value).subscribe(
         success => {
-          alert('Cliente atualizado com sucesso!');
-          this.router.navigate(['']);
+          alert('Fornecedor atualizado com sucesso!');
+          this.router.navigate(['fornecedor']);
         },
-        error => alert('Erro ao atualizar o cliente ')
+        error => alert('Erro ao atualizar o fornecedor ')
       );
     } else {
       this.service.criar(this.form.value).subscribe(
         success => {
           alert('Cliente cadastrado com sucesso!');
-          this.router.navigate(['']);
+          this.router.navigate(['fornecedor']);
         },
-        error => alert('Erro ao cadastrar o cliente ')
+        error => alert('Erro ao cadastrar o fornecedor ')
       );
     }
 
@@ -66,9 +65,10 @@ export class FormFornecedorComponent implements OnInit {
     this.form.patchValue({
       id: fornecedor.id,
       nome: fornecedor.nome,
+      cnpj: fornecedor.cnpj, 
+      ie: fornecedor.ie,
       endereco: fornecedor.endereco,
       email: fornecedor.email,
-      cnpj: fornecedor.cnpj, 
     });
   }
 

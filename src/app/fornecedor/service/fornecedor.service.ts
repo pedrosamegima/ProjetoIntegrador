@@ -6,7 +6,7 @@ import { take } from 'rxjs';
   providedIn: 'root'
 })
 export class FornecedorService {
-  private readonly  API = "http://localhost:8080/fornecedor";
+  private readonly  API = "http://localhost:8080/fornecedores";
 
   constructor(private http: HttpClient) { }
 
